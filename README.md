@@ -1,17 +1,15 @@
 # Slack Orb
 
+Easily create custom [Slack](https://slack.com/ "Slack") notifications for your [CircleCI](https://circleci.com/ "CircleCI") projects. Create custom alert messages for any job or receive status updates.
 
-Easily integrate custom [Slack](https://slack.com/ "Slack") notifications into your [CircleCI](https://circleci.com/ "CircleCI") projects. Create custom alert messages for any job or receive status updates.
-
-Learn more about [Orbs](https://github.com/CircleCI-Public/config-preview-sdk/blob/master/docs/using-orbs.md "orb").
-
+Learn more about [Orbs](https://circleci.com/orbs/ "Orbs").
 
 ## Usage
 
 Example config:
 ```yaml
 orbs:
-  slack: circleci/slack@0.1.0
+  slack: circleci/slack@1.0.0
 
 jobs:
   build:
@@ -21,10 +19,28 @@ jobs:
       - slack/<command>
 
 ```
-`slack@1.0.0` from the `circleci` namespace is imported into `slack` which can then be referenced in a step in any job you require.
+
+`slack@1.0.0` from the `circleci` namespace is imported into the `config.yml` file, and the orb can then be referenced as `slack` in any job that requires it.
+
+The Slack orb contains two commands, `notify` and `status`
 
 ## Commands
-- ### Notify
+
+The Slack orb contains two commands, `notify` and `status`.
+
+| Command | Description |
+|-----------|------|---------|-------------|
+| `notify` | Send a custom message to the Slack channel of your choice |
+| `status` | Send a CircleCI job status update to the Slack channel of your choice |
+
+### Notify
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `webhook` | string | `$SLACK_WEBHOOK` | Webhook for the Slack app created to process incoming messages sent via this orb—[more info](https://api.slack.com/incoming-webhooks) |
+| `message` | string | `Your job on CircleCI has completed` | x |
+| `color` | string | `#333333` | x |
+| `mentions` | string | `""` | x |
 
 |  Usage | slack/notify   |
 | ------------ | ------------ |
