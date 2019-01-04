@@ -11,7 +11,6 @@ description: |
 # Create your key here: https://api.slack.com/incoming-webhooks
 
 ## Requirements ##
-## - Bash
 ## - cURL
 
 commands:
@@ -58,7 +57,8 @@ commands:
               echo Notifying Slack Channel
               #Create Members string
               if [ -n "<< parameters.mentions >>" ]; then
-                IFS="," read -ra SLACK_MEMBERS \<<< "<< parameters.mentions >>"
+                IFS=",";
+                SLACK_MEMBERS="<< parameters.mentions >>";
                 for i in "${SLACK_MEMBERS[@]}"; do
                   if [ $(echo ${i} | head -c 1) == "S" ]; then
                     SLACK_MENTIONS="${SLACK_MENTIONS}<!subteam^${i}> "
@@ -152,7 +152,8 @@ commands:
               else
                 #Create Members string
                 if [ -n "<< parameters.mentions >>" ]; then
-                  IFS="," read -ra SLACK_MEMBERS \<<< "<< parameters.mentions >>"
+                  IFS=",";
+                  SLACK_MEMBERS="<< parameters.mentions >>";
                   for i in "${SLACK_MEMBERS[@]}"; do
                     if [ $(echo ${i} | head -c 1) == "S" ]; then
                       SLACK_MENTIONS="${SLACK_MENTIONS}<!subteam^${i}> "
