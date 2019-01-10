@@ -57,16 +57,16 @@ steps:
             exit 1
           else
             #Create Members string
-            if [ -n "<< parameters.mentions >>" ]; then
-              IFS="," read -ra SLACK_MEMBERS \<<< "<< parameters.mentions >>"
-              for i in "${SLACK_MEMBERS[@]}"; do
-                if [ $(echo ${i} | head -c 1) == "S" ]; then
-                  SLACK_MENTIONS="${SLACK_MENTIONS}<!subteam^${i}> "
-                else
-                  SLACK_MENTIONS="${SLACK_MENTIONS}<@${i}> "
-                fi
-              done
-            fi
+          if [ -n "<< parameters.mentions >>" ]; then
+            for i in $(echo "<< parameters.mentions >>" | sed "s/,/ /g")
+            do
+              if [ $(echo ${i} | head -c 1) == "S" ]; then
+                SLACK_MENTIONS="${SLACK_MENTIONS}<!subteam^${i}> "
+              else
+                SLACK_MENTIONS="${SLACK_MENTIONS}<@${i}> "
+              fi
+            done
+          fi
             #If successful
             if [ "$SLACK_BUILD_STATUS" = "success" ]; then
               #Skip if fail_only

@@ -44,9 +44,8 @@ steps:
           echo Notifying Slack Channel
           #Create Members string
           if [ -n "<< parameters.mentions >>" ]; then
-            IFS=","
-            SLACK_MEMBERS \<< "<< parameters.mentions >>"
-            for i in "${SLACK_MEMBERS[@]}"; do
+            for i in $(echo "<< parameters.mentions >>" | sed "s/,/ /g")
+            do
               if [ $(echo ${i} | head -c 1) == "S" ]; then
                 SLACK_MENTIONS="${SLACK_MENTIONS}<!subteam^${i}> "
               else
