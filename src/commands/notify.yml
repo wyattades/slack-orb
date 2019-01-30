@@ -58,7 +58,7 @@ steps:
           echo "Please input your SLACK_WEBHOOK value either in the settings for this project, or as a parameter for this orb."
           exit 1
         else
-          if [[ << parameters.when >> == "always" || ( << parameters.when >> == "on_success" && "$SLACK_BUILD_STATUS" == "success") || ( << parameters.when >> == "on_fail" && "$SLACK_BUILD_STATUS" == "fail") ]; then
+          if [[ << parameters.when >> == "always" || ( << parameters.when >> == "on_success" && "$SLACK_BUILD_STATUS" == "success") || ( << parameters.when >> == "on_fail" && "$SLACK_BUILD_STATUS" == "fail") ]]; then
             # Webhook properly set.
             echo Notifying Slack Channel
             #Create Members string

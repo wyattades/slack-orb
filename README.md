@@ -1,8 +1,8 @@
-# Slack Orb ![CircleCI status](https://circleci.com/gh/wyattades/slack-orb.svg "CircleCI status")
-
-Easily integrate custom [Slack](https://slack.com/ "Slack") notifications into your [CircleCI](https://circleci.com/ "CircleCI") projects. Create custom alert messages for any job or receive status updates.
+# Slack Orb
 
 __(This is a fork of the [circleci/slack](https://github.com/CircleCI-Public/Slack-orb) orb)__
+
+Easily integrate custom [Slack](https://slack.com/ "Slack") notifications into your [CircleCI](https://circleci.com/ "CircleCI") projects. Create custom alert messages for any job or receive status updates.
 
 Learn more about [Orbs](https://github.com/CircleCI-Public/config-preview-sdk/blob/master/docs/using-orbs.md "orb").
 
