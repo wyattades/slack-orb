@@ -22,7 +22,7 @@ parameters:
     default: ""
 
   when:
-    description: "When to run send this message. Options: always (default), on_fail, on_success"
+    description: "When to run send this message. Options: always, on_fail, on_success"
     type: enum
     default: "always"
     enum: ["always", "on_fail", "on_success"]
@@ -50,6 +50,7 @@ steps:
   - run:
       name: Slack Notification
       shell: /bin/bash
+      when: always
       command: |
         # Provide error if no webhook is set and error. Otherwise continue
         if [ -z "<< parameters.webhook >>" ]; then

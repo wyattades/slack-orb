@@ -1,4 +1,4 @@
-description: "Notify a slack channel with a custom message at any point in a job with this custom step. More docs here: https://github.com/CircleCI-Public/slack-orb"
+description: "Notify a slack channel with a custom message at any point in a job with this custom step. More docs here: https://github.com/wyattades/slack-orb"
 
 usage:
   version: 2.1
@@ -12,6 +12,7 @@ usage:
         - image: <docker image>
       steps:
         - slack/notify:
+            when: always
             message: "This is a custom message notification" # Optional: Enter your own message
             mentions: "USERID1,USERID2," # Optional: Enter the Slack IDs of any user or group (sub_team) to be mentioned
             color: "#42e2f4" # Optional: Assign custom colors for each notification

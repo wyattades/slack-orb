@@ -1,6 +1,8 @@
-# Slack Orb ![CircleCI status](https://circleci.com/gh/CircleCI-Public/slack-orb.svg "CircleCI status")
+# Slack Orb ![CircleCI status](https://circleci.com/gh/wyattades/slack-orb.svg "CircleCI status")
 
 Easily integrate custom [Slack](https://slack.com/ "Slack") notifications into your [CircleCI](https://circleci.com/ "CircleCI") projects. Create custom alert messages for any job or receive status updates.
+
+__(This is a fork of the [circleci/slack](https://github.com/CircleCI-Public/Slack-orb) orb)__
 
 Learn more about [Orbs](https://github.com/CircleCI-Public/config-preview-sdk/blob/master/docs/using-orbs.md "orb").
 
@@ -12,7 +14,7 @@ Example config:
 version: 2.1
 
 orbs:
-  slack: circleci/slack@1.0.0
+  slack: slack/slack@1.0.3
 
 jobs:
   build:
@@ -31,7 +33,7 @@ jobs:
 |  Usage | slack/notify   |
 | ------------ | ------------ |
 | **Description:**  | Notify a slack channel with a custom message at any point in a job with this custom step. |
-|  **Parameters:** | - **webhook:**  Enter either your Webhook value or use the CircleCI UI to add your token under the `SLACK_WEBHOOK` environment variable <br><br> - **message:** Enter your custom message to send to your Slack channel.  <br> <br> - **mentions:** A comma separated list of Slack user IDs, or Group (SubTeam) IDs. example 'USER1,USER2,USER3'. Note, these are Slack User IDs, not usernames. The user ID can be found on the user's profile. Look below for infomration on obtaining Group ID. <br> <br> - **color:** Color can be set for a notification to help differentiate alerts.|
+|  **Parameters:** | - **when:**  Condition for sending notification. Must be one of: `always`, `on_success`, `on_fail`. Defaults to `always` <br><br>- **webhook:**  Enter either your Webhook value or use the CircleCI UI to add your token under the `SLACK_WEBHOOK` environment variable <br><br> - **message:** Enter your custom message to send to your Slack channel.  <br> <br> - **mentions:** A comma separated list of Slack user IDs, or Group (SubTeam) IDs. example 'USER1,USER2,USER3'. Note, these are Slack User IDs, not usernames. The user ID can be found on the user's profile. Look below for infomration on obtaining Group ID. <br> <br> - **color:** Color can be set for a notification to help differentiate alerts.|
 
 Example:
 
@@ -39,7 +41,7 @@ Example:
 version: 2.1
 
 orbs:
-  slack: circleci/slack@1.0.1
+  slack: slack/slack@1.0.3
 
 jobs:
   build:
@@ -71,7 +73,7 @@ Example:
 version: 2.1
 
 orbs:
-  slack: circleci/slack@1.0.0
+  slack: slack/slack@1.0.3
 
 jobs:
   build:
