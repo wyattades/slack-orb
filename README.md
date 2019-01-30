@@ -39,7 +39,7 @@ Example:
 version: 2.1
 
 orbs:
-  slack: circleci/slack@1.0.0
+  slack: circleci/slack@1.0.1
 
 jobs:
   build:
@@ -47,6 +47,7 @@ jobs:
       - image: <docker image>
     steps:
       - slack/notify:
+          when: on_success # Optional: When to notify. Can be 'always' (default), 'on_fail', or 'on_success'
           message: "This is a custom message notification" # Optional: Enter your own message
           mentions: "USERID1,USERID2," # Optional: Enter the Slack IDs of any user or group (sub_team) to be mentioned
           color: "#42e2f4" # Optional: Assign custom colors for each notification
